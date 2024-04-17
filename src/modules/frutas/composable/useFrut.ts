@@ -1,4 +1,4 @@
-import agroApi from "@/services/oneApi";
+import oneApi from "@/services/oneApi";
 
 import type {  fruData } from '../interface';
 
@@ -8,7 +8,7 @@ const useFrut = () => {
     const getFrut = async () => {
         try {
             const URL_API = `v2/fruits/fr`;
-            const { data, status } = await agroApi.put(URL_API)
+            const { data, status } = await oneApi.put(URL_API)
             return { data, status }
         } catch (error) {
             console.log(error);
@@ -18,7 +18,7 @@ const useFrut = () => {
     const frutId = async (id: string) => {
         try {
             const URL_API = `fruits/fr/${id}`;
-            const { data, status } = await agroApi.get(URL_API);
+            const { data, status } = await oneApi.get(URL_API);
             return { data, status }
         } catch (error) {
             console.log(error);

@@ -1,197 +1,192 @@
-
-<template>
-    <div class="card flex justify-content-center">
-        <Sidebar v-model:visible="visible">
-            <template #container="{ closeCallback }">
-                <div class="flex flex-column h-full">
-                    <div class="flex align-items-center justify-content-between px-4 pt-3 flex-shrink-0">
-                        <span class="inline-flex align-items-center gap-2">
-                            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
-                                    fill="var(--primary-color)"
-                                />
-                                <path
-                                    d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
-                                    fill="var(--text-color)"
-                                />
-                            </svg>
-                            <span class="font-semibold text-2xl text-primary">Your Logo</span>
-                        </span>
-                        <span>
-                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined class="h-2rem w-2rem"></Button>
-                        </span>
-                    </div>
-                    <div class="overflow-y-auto">
-                        <ul class="list-none p-3 m-0">
-                            <li>
-                                <div
-                                    v-ripple
-                                    v-styleclass="{
-                                        selector: '@next',
-                                        enterClass: 'hidden',
-                                        enterActiveClass: 'slidedown',
-                                        leaveToClass: 'hidden',
-                                        leaveActiveClass: 'slideup'
-                                    }"
-                                    class="p-3 flex align-items-center justify-content-between text-600 cursor-pointer p-ripple"
-                                >
-                                    <span class="font-medium">FAVORITES</span>
-                                    <i class="pi pi-chevron-down"></i>
-                                </div>
-                                <ul class="list-none p-0 m-0 overflow-hidden">
-                                    <li>
-                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                            <i class="pi pi-home mr-2"></i>
-                                            <span class="font-medium">Dashboard</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                            <i class="pi pi-bookmark mr-2"></i>
-                                            <span class="font-medium">Bookmarks</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            v-ripple
-                                            v-styleclass="{
-                                                selector: '@next',
-                                                enterClass: 'hidden',
-                                                enterActiveClass: 'slidedown',
-                                                leaveToClass: 'hidden',
-                                                leaveActiveClass: 'slideup'
-                                            }"
-                                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
-                                        >
-                                            <i class="pi pi-chart-line mr-2"></i>
-                                            <span class="font-medium">Reports</span>
-                                            <i class="pi pi-chevron-down ml-auto"></i>
-                                        </a>
-                                        <ul class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
-                                            <li>
-                                                <a
-                                                    v-ripple
-                                                    v-styleclass="{
-                                                        selector: '@next',
-                                                        enterClass: 'hidden',
-                                                        enterActiveClass: 'slidedown',
-                                                        leaveToClass: 'hidden',
-                                                        leaveActiveClass: 'slideup'
-                                                    }"
-                                                    class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
-                                                >
-                                                    <i class="pi pi-chart-line mr-2"></i>
-                                                    <span class="font-medium">Revenue</span>
-                                                    <i class="pi pi-chevron-down ml-auto"></i>
-                                                </a>
-                                                <ul class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
-                                                    <li>
-                                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                                            <i class="pi pi-table mr-2"></i>
-                                                            <span class="font-medium">View</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                                            <i class="pi pi-search mr-2"></i>
-                                                            <span class="font-medium">Search</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                                    <i class="pi pi-chart-line mr-2"></i>
-                                                    <span class="font-medium">Expenses</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                            <i class="pi pi-users mr-2"></i>
-                                            <span class="font-medium">Team</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                            <i class="pi pi-comments mr-2"></i>
-                                            <span class="font-medium">Messages</span>
-                                            <span class="inline-flex align-items-center justify-content-center ml-auto bg-primary border-circle" style="min-width: 1.5rem; height: 1.5rem">3</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                            <i class="pi pi-calendar mr-2"></i>
-                                            <span class="font-medium">Calendar</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                            <i class="pi pi-cog mr-2"></i>
-                                            <span class="font-medium">Settings</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="list-none p-3 m-0">
-                            <li>
-                                <div
-                                    v-ripple
-                                    v-styleclass="{
-                                        selector: '@next',
-                                        enterClass: 'hidden',
-                                        enterActiveClass: 'slidedown',
-                                        leaveToClass: 'hidden',
-                                        leaveActiveClass: 'slideup'
-                                    }"
-                                    class="p-3 flex align-items-center justify-content-between text-600 cursor-pointer p-ripple"
-                                >
-                                    <span class="font-medium">APPLICATION</span>
-                                    <i class="pi pi-chevron-down"></i>
-                                </div>
-                                <ul class="list-none p-0 m-0 overflow-hidden">
-                                    <li>
-                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                            <i class="pi pi-folder mr-2"></i>
-                                            <span class="font-medium">Projects</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                            <i class="pi pi-chart-bar mr-2"></i>
-                                            <span class="font-medium">Performance</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a v-ripple class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                                            <i class="pi pi-cog mr-2"></i>
-                                            <span class="font-medium">Settings</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mt-auto">
-                        <hr class="mb-3 mx-3 border-top-1 border-none surface-border" />
-                        <a v-ripple class="m-3 flex align-items-center cursor-pointer p-3 gap-2 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple">
-                            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                            <span class="font-bold">Amy Elsner</span>
-                        </a>
-                    </div>
-                </div>
-            </template>
-        </Sidebar>
-        <Button icon="pi pi-bars" @click="visible = true" />
-    </div>
-</template>
-
 <script setup>
-import { ref } from "vue";
+import { onMounted } from 'vue'
+import { initFlowbite } from 'flowbite'
 
-const visible = ref(false);
+// initialize components based on data attribute selectors
+onMounted(() => {
+  initFlowbite()
+})
 </script>
-
+<template>
+  <nav class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+      <a href="/" class="flex items-center">
+        <img
+          src="https://i.pinimg.com/originals/3f/36/fc/3f36fcdd50dcbfd4a15080c52743a596.png"
+          class="h-11 mr-3"
+          alt="Flowbite Logo"
+        />
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          >One-piece</span
+        >
+        
+      </a>
+      <button
+        id="mega-menu-full-image-button"
+        data-collapse-toggle="mega-menu-full-image"
+        type="button"
+        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="mega-menu-full-image"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
+      <div
+        id="mega-menu-full-image"
+        class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+      >
+        <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
+          <li>
+            <a
+              href="/"
+              class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+              aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li>
+            <button
+              id="mega-menu-full-cta-image-button"
+              data-collapse-toggle="mega-menu-full-image-dropdown"
+              class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+            >
+              Info
+              <svg
+                class="w-5 h-5 ml-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+              >Marketplace</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+              >Resources</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      id="mega-menu-full-image-dropdown"
+      class="mt-1 bg-white border-gray-200 shadow-sm border-y dark:bg-gray-800 dark:border-gray-600"
+    >
+      <div
+        class="grid max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-400 md:grid-cols-3 md:px-6"
+      >
+        <ul class="mb-4 space-y-4 md:mb-0 md:block" aria-labelledby="mega-menu-full-image-button">
+          <li>
+            <a href="/about" class="hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+              Frutas
+            </a>
+          </li>
+          <li>
+            <a href="/espada" class="hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+              Espadas
+            </a>
+          </li>
+          <li>
+            <a
+              href="/personaje"
+              class="hover:underline hover:text-blue-600 dark:hover:text-blue-500"
+            >
+              Personajes
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+              Online Stores
+            </a>
+          </li>
+        </ul>
+        <ul class="mb-4 space-y-4 md:mb-0">
+          <li>
+            <a href="#" class="hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+              Our Blog
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+              Terms & Conditions
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+              License
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+              Resources
+            </a>
+          </li>
+        </ul>
+        <a
+          href="https://api-onepiece.com/"
+          class="p-8 text-left bg-local bg-gray-500 bg-center bg-no-repeat bg-cover rounded-lg bg-blend-multiply hover:bg-blend-soft-light dark:hover:bg-blend-darken"
+          style="
+            background-image: url(https://api-onepiece.com/build/img/background/straw-hat-pirates.jpg);
+          "
+        >
+          <p class="max-w-xl mb-5 font-extrabold leading-tight tracking-tight text-white">
+            Commencez à utiliser l'API One Piece dès à présent.
+          </p>
+          <button
+            type="button"
+            class="inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-center text-white border border-white rounded-lg hover:bg-white hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700"
+          >
+            Get started
+            <svg
+              class="w-4 h-4 ml-1 -mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </a>
+      </div>
+    </div>
+    <ul class="flex border-b-4 border-gray-200 dark:border-gray-700"></ul>
+  </nav>
+</template>
